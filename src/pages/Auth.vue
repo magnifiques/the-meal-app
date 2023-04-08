@@ -13,7 +13,11 @@
         Discover Your favorite Meals
       </h1>
 
+      <div v-if="isLoading">
+        <BaseLoader />
+      </div>
       <form
+        v-else
         class="font-roboto grid lg:grid-cols-2 mt-12 py-8 px-4 lg:p-8 lg:first-letter:gap-2 shadow-xl rounded-xl bg-violet-400 bg-opacity-50 justify-items-center xl:text-lg"
         @submit.prevent="submitForm"
       >
@@ -103,12 +107,15 @@
 import store from "../store/index";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import BaseLoader from "../ui/BaseLoader.vue";
 
 const userName = ref("");
 const email = ref("");
 const password = ref("");
 const isUser = ref(false);
 const error = ref(null);
+
+const isLoading = ref(false);
 
 const router = useRouter();
 
@@ -120,7 +127,10 @@ function toggleUser(value) {
   error.value = "";
 }
 
+console.log(isLoading.value);
+
 async function submitForm() {
+  isLoading.value = true;
   if (isUser.value) {
     try {
       const userData = {
@@ -147,6 +157,7 @@ async function submitForm() {
       error.value = err.message;
     }
   }
+  isLoading.value = false;
 }
 </script>
 
