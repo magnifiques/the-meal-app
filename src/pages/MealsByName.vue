@@ -15,7 +15,7 @@
     </div>
 
     <ul
-      v-else-if="result"
+      v-else-if="result.length > 0"
       class="grid p-8 gap-8 justify-items-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
     >
       <MealItem

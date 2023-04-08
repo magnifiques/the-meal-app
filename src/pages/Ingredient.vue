@@ -4,7 +4,7 @@
       <BaseLoader />
     </div>
 
-    <div v-else-if="result">
+    <div v-else-if="result.length > 0">
       <h1 class="pt-8 font-semibold text-2xl uppercase text-center">
         Meals for {{ ingredient }}
       </h1>

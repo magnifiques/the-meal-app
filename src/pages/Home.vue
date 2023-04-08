@@ -4,7 +4,7 @@
       <BaseLoader />
     </div>
 
-    <div v-else-if="result">
+    <div v-else-if="result.length > 0">
       <h1
         class="pt-8 font-semibold text-2xl uppercase text-center lg:text-left"
       >
@@ -30,7 +30,8 @@
     </div>
     <div v-else>
       <h3 class="text-center mt-12 text-2xl font-extrabold text-red-500">
-        Meal does not exist!
+        It seems that the Meal Database is down right now! Please Try again
+        later
       </h3>
     </div>
   </div>
