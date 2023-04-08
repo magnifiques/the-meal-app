@@ -4,7 +4,10 @@ export default {
       const response = await fetch(
         `${
           import.meta.env.VITE_the_meal_db_api
-        }/api/json/v1/1/search.php?s=${query}`
+        }/api/json/v1/1/search.php?s=${query}`,
+        {
+          mode: "cors",
+        }
       );
       const responseData = await response.json();
       context.commit("setMeals", responseData.meals);
@@ -18,7 +21,10 @@ export default {
       const response = await fetch(
         `${
           import.meta.env.VITE_the_meal_db_api
-        }/api/json/v1/1/search.php?f=${query}`
+        }/api/json/v1/1/search.php?f=${query}`,
+        {
+          mode: "cors",
+        }
       );
       const responseData = await response.json();
       context.commit("setMealsByLetter", responseData.meals);
@@ -32,7 +38,10 @@ export default {
       const response = await fetch(
         `${
           import.meta.env.VITE_the_meal_db_api
-        }/api/json/v1/1/filter.php?i=${query}`
+        }/api/json/v1/1/filter.php?i=${query}`,
+        {
+          mode: "cors",
+        }
       );
 
       const responseData = await response.json();
@@ -47,7 +56,10 @@ export default {
       const result = [];
       for (let i = 0; i < 4; i++) {
         const response = await fetch(
-          `${import.meta.env.VITE_the_meal_db_api}/api/json/v1/1/random.php`
+          `${import.meta.env.VITE_the_meal_db_api}/api/json/v1/1/random.php`,
+          {
+            mode: "cors",
+          }
         );
         const responseData = await response.json();
         result.push(responseData.meals[0]);
@@ -68,7 +80,10 @@ export default {
         const response = await fetch(
           `${import.meta.env.VITE_the_meal_db_api}/api/json/v1/1/lookup.php?i=${
             mealIds[i]
-          }`
+          }`,
+          {
+            mode: "cors",
+          }
         );
         if (!response.ok) throw new Error("Something Went Wrong");
 

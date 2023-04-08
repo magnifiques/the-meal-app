@@ -43,6 +43,7 @@ export default {
         `${import.meta.env.VITE_the_meal_db_backend}/users/signup`,
         {
           method: "POST",
+          mode: "cors",
           headers: {
             "Content-Type": "application/json",
           },
@@ -86,6 +87,7 @@ export default {
         `${import.meta.env.VITE_the_meal_db_backend}/users/login`,
         {
           method: "POST",
+          mode: "cors",
           headers: {
             "Content-Type": "application/json",
           },
@@ -136,6 +138,7 @@ export default {
         `${import.meta.env.VITE_the_meal_db_backend}/users/bookmark`,
         {
           method: "POST",
+          mode: "cors",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -158,6 +161,8 @@ export default {
       const response = await fetch(
         `${import.meta.env.VITE_the_meal_db_backend}/users/getMealId`,
         {
+          method: "GET",
+          mode: "cors",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -182,6 +187,7 @@ export default {
         `${import.meta.env.VITE_the_meal_db_backend}/users/deleteMealId`,
         {
           method: "DELETE",
+          mode: "cors",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
