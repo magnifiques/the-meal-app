@@ -57,8 +57,6 @@ export default {
 
       const responseData = await response.json();
 
-      console.log(responseData);
-
       const userData = {
         email: query.email,
         userName: query.userName,
@@ -102,7 +100,6 @@ export default {
         email: query.email,
         userName: responseData.userName,
       };
-      console.log(responseData);
       context.commit("setUserData", userData);
       context.commit("setIsAuthenticated", true);
 

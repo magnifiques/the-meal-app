@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <video id="desk-view" autoplay muted loop>
+    <video id="desk-view" playsinline autoplay muted loop>
       <source src="/desk-video.mp4" />
     </video>
 
-    <video id="mobile-view" autoplay muted loop>
+    <video id="mobile-view" playsinline autoplay muted loop>
       <source src="/mobile-view.mp4" />
     </video>
 
