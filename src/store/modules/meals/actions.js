@@ -85,7 +85,6 @@ export default {
             mode: "cors",
           }
         );
-        if (!response.ok) throw new Error("Something Went Wrong");
 
         const responseData = await response.json();
 

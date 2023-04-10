@@ -127,8 +127,6 @@ function toggleUser(value) {
   error.value = "";
 }
 
-console.log(isLoading.value);
-
 async function submitForm() {
   isLoading.value = true;
   if (isUser.value) {

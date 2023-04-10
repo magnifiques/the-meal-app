@@ -55,26 +55,22 @@ export default {
         }
       );
 
-      if (response.ok) {
-        const responseData = await response.json();
+      const responseData = await response.json();
 
-        const userData = {
-          email: query.email,
-          userName: query.userName,
-        };
+      const userData = {
+        email: query.email,
+        userName: query.userName,
+      };
 
-        context.commit("setUserData", userData);
-        context.commit("setIsAuthenticated", true);
+      context.commit("setUserData", userData);
+      context.commit("setIsAuthenticated", true);
 
-        const expirationTime = new Date().getTime() + 60 * 60 * 1000;
-        timer = setTimeout(() => {
-          context.dispatch("logout");
-        }, expirationTime);
+      const expirationTime = new Date().getTime() + 60 * 60 * 1000;
+      timer = setTimeout(() => {
+        context.dispatch("logout");
+      }, expirationTime);
 
-        setUser(userData, responseData.token, expirationTime);
-      } else {
-        throw new Error("Email Must be Unique");
-      }
+      setUser(userData, responseData.token, expirationTime);
     } catch (error) {
       if (error) {
         throw new Error(error.message);
@@ -98,26 +94,22 @@ export default {
         }
       );
 
-      if (response.ok) {
-        const responseData = await response.json();
+      const responseData = await response.json();
 
-        const userData = {
-          email: query.email,
-          userName: responseData.userName,
-        };
+      const userData = {
+        email: query.email,
+        userName: responseData.userName,
+      };
 
-        context.commit("setUserData", userData);
-        context.commit("setIsAuthenticated", true);
+      context.commit("setUserData", userData);
+      context.commit("setIsAuthenticated", true);
 
-        const expirationTime = new Date().getTime() + 60 * 60 * 1000;
-        timer = setTimeout(() => {
-          context.dispatch("logout");
-        }, expirationTime);
+      const expirationTime = new Date().getTime() + 60 * 60 * 1000;
+      timer = setTimeout(() => {
+        context.dispatch("logout");
+      }, expirationTime);
 
-        setUser(userData, responseData.token, expirationTime);
-      } else {
-        throw new Error("Invalid Credentials");
-      }
+      setUser(userData, responseData.token, expirationTime);
     } catch (error) {
       if (error) {
         throw new Error(error.message);
@@ -148,8 +140,6 @@ export default {
           }),
         }
       );
-
-      if (!response.ok) throw new Error("something went wrong");
     } catch (error) {
       throw new Error(error.message);
     }
@@ -169,8 +159,6 @@ export default {
           },
         }
       );
-
-      if (!response.ok) throw new Error("something went wrong");
 
       const responseData = await response.json();
 
@@ -197,8 +185,6 @@ export default {
           }),
         }
       );
-
-      if (!response.ok) throw new Error("something went wrong");
     } catch (error) {
       throw new Error(error.message);
     }
