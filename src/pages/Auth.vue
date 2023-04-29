@@ -163,7 +163,7 @@ async function submitForm() {
 .container {
   position: relative;
 
-  background-color: rgba(0, 0, 0, 0.4);
+  /* background-color: rgba(0, 0, 0, 0.4); */
 }
 .container video {
   position: absolute;

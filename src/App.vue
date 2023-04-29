@@ -26,6 +26,7 @@ const isLogged = computed(() => {
   return store.getters["isAuthenticated"];
 });
 
+console.log(isLogged.value);
 watch(isLogged, (currentValue, oldValue) => {
   if (!currentValue) {
     router.push("/auth");

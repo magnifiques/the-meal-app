@@ -21,6 +21,7 @@ export default {
     const currentTime = new Date().getTime();
 
     const remainingTime = expirationTime - currentTime;
+    console.log(remainingTime);
 
     if (remainingTime <= 0) {
       removeUser();
@@ -66,9 +67,10 @@ export default {
       context.commit("setIsAuthenticated", true);
 
       const expirationTime = new Date().getTime() + 60 * 60 * 1000;
+
       timer = setTimeout(() => {
         context.dispatch("logout");
-      }, expirationTime);
+      }, 60 * 60 * 1000);
 
       setUser(userData, responseData.token, expirationTime);
     } catch (error) {
@@ -100,13 +102,15 @@ export default {
         email: query.email,
         userName: responseData.userName,
       };
+
       context.commit("setUserData", userData);
       context.commit("setIsAuthenticated", true);
 
       const expirationTime = new Date().getTime() + 60 * 60 * 1000;
+
       timer = setTimeout(() => {
         context.dispatch("logout");
-      }, expirationTime);
+      }, 60 * 60 * 1000);
 
       setUser(userData, responseData.token, expirationTime);
     } catch (error) {
